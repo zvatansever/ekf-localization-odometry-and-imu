@@ -1,17 +1,21 @@
-# ekf-localization-odometry-and-imu
+# EKF Localization: Odometry and IMU
 
 First, perform system update/Upgrade: 
+```sh
  apt-get update
  apt-get upgrade -y
-
+```
 Steps
+```sh
 1- Create Catkin Workspace:
   mkdir -p /home/workspace/catkin_ws/src
   cd /home/workspace/catkin_ws/src
   catkin_init_workspace
   cd ..
   catkin_make
-  
+```  
+
+```sh
 2- Import TurtleBot Gazebo Package:
    Clone Package:
    
@@ -32,7 +36,8 @@ Steps
    Launch Nodes:
    
    roslaunch turtlebot_gazebo turtlebot_world.launch
-   
+```
+```sh
  3- Install EKF package: Documentation available on http://wiki.ros.org/robot_pose_ekf
  
    cd /home/workspace/catkin_ws/src/
@@ -60,7 +65,8 @@ Steps
   
    Launch the node:
    roslaunch robot_pose_ekf robot_pose_ekf.launch
-   
+```
+```sh
  4-Install odom_to_trajectory: This package calculates the trajectory from odometer data.
  
    cd /home/workspace/catkin_ws/src
@@ -73,7 +79,8 @@ Steps
   
    Launch the nodes:
    roslaunch odom_to_trajectory create_trajectory.launch 
- 
+```
+```sh
  5- Install Teleop package: This package helps controlling the TurtleBot
     cd /home/workspace/catkin_ws/src
     git clone https://github.com/turtlebot/turtlebot
@@ -89,8 +96,8 @@ Steps
     
     Launch the node:
     roslaunch turtlebot_teleop keyboard_teleop.launch
-    
-    
+ ```   
+ ```sh   
   6- Launch rviz:
     rosrun rviz rviz
     
@@ -116,8 +123,8 @@ Steps
    Close the rviz terminal and
    Relaunch rviz:
    rosrun rviz rviz -d /home/workspace/catkin_ws/src/EKFLab.rviz
-   
-   
+```   
+   ```sh
  7- Create a main file to open everything at the same time:
    cd /home/workspace/catkin_ws/src
    catkin_create_pkg main
@@ -136,6 +143,4 @@ Steps
    cd /home/workspace/catkin_ws/
    source devel/setup.bash
    roslaunch main main.launch
-   
-   
-  
+   ```
